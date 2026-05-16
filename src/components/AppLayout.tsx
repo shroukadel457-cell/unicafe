@@ -46,7 +46,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#EBF4FA] font-inter">
+    <div className="min-h-screen bg-[#EBF4FA] font-inter flex">
       {/* Mobile overlay */}
       {mobileOpen && (
         <div
@@ -125,7 +125,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
       </aside>
 
       {/* Main Content */}
-      <div className="lg:ml-[260px] min-h-screen">
+      <div className="lg:ml-[260px] min-h-screen flex-1 flex flex-col">
         {/* Top Header */}
         <header className="sticky top-0 z-30 bg-[#EBF4FA]/80 backdrop-blur-md border-b border-[#D0E4F0]">
           <div className="flex items-center justify-between px-4 lg:px-8 py-3">
@@ -179,12 +179,12 @@ export default function AppLayout({ children }: AppLayoutProps) {
         </header>
 
         {/* Page Content */}
-        <main className="p-4 lg:p-8 max-w-[1280px] mx-auto">
+        <main className="flex-1 p-4 lg:p-8 max-w-[1280px] mx-auto w-full">
           {children}
         </main>
 
-        {/* Copyright Footer */}
-        <footer className="px-4 lg:px-8 py-4 border-t border-[#D0E4F0]">
+        {/* Copyright Footer - Always at bottom */}
+        <footer className="px-4 lg:px-8 py-4 border-t border-[#D0E4F0] bg-[#EBF4FA]/60 backdrop-blur-sm mt-auto">
           <p className="text-center text-xs text-[#5A7A94] font-medium">
             &copy; 2026 Shrouk Adel. All rights reserved.
           </p>
