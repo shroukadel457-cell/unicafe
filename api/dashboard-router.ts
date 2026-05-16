@@ -33,7 +33,7 @@ export const dashboardRouter = createRouter({
     const itemCounts = new Map<number, number>();
     for (const oi of allOrderItems) {
       const current = itemCounts.get(oi.menuItemId) || 0;
-      itemCounts.set(oi.menuItemId, current + oi.quantity);
+      itemCounts.set(oi.menuItemId, current + Number(oi.quantity));
     }
 
     const popularItemIds = Array.from(itemCounts.entries())
@@ -41,17 +41,18 @@ export const dashboardRouter = createRouter({
       .slice(0, 5)
       .map(([id]) => id);
 
-    const popularItems =
-      popularItemIds.length > 0
-        ? await db
-            .select()
-            .from(menuItems)
-            .where(
-              sql`${menuItems.id} IN (${sql.join(
-                popularItemIds.map((id) => sql`${id}`)
-              )})`
-            )
-        : [];
+    // Fixed: Use individual eq queries instead of sql.join for MySQL compatibility
+    let popularItems: any[] = [];
+    if (popularItemIds.length > 0) {
+      for (const id of popularItemIds) {
+        const item = await db
+          .select()
+          .from(menuItems)
+          .where(eq(menuItems.id, id))
+          .limit(1);
+        if (item[0]) popularItems.push(item[0]);
+      }
+    }
 
     return {
       totalOrders,
