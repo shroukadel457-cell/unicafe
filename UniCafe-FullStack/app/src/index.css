@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 200 45% 95%;
+    --foreground: 210 35% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 35% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 35% 15%;
+    --primary: 200 65% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 40% 95%;
+    --secondary-foreground: 200 65% 45%;
+    --muted: 200 30% 94%;
+    --muted-foreground: 210 20% 50%;
+    --accent: 200 65% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 200 30% 85%;
+    --input: 200 30% 90%;
+    --ring: 200 65% 55%;
+    --radius: 0.625rem;
+    --sidebar-background: 210 35% 15%;
+    --sidebar-foreground: 210 20% 70%;
+    --sidebar-primary: 200 65% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 40% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 210 25% 25%;
+    --sidebar-ring: 200 65% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fredoka', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-fredoka {
+    font-family: 'Fredoka', sans-serif;
+  }
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
