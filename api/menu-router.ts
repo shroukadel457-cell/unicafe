@@ -77,7 +77,7 @@ export const menuRouter = createRouter({
         name: input.name,
         description: input.description || "",
         category: input.category as any,
-        priceEGP: String(input.priceEGP),
+        priceEGP: input.priceEGP,
         icon: input.icon,
         available: input.available,
         popular: input.popular,
@@ -117,7 +117,7 @@ export const menuRouter = createRouter({
       if (updates.category !== undefined)
         updateData.category = updates.category;
       if (updates.priceEGP !== undefined)
-        updateData.priceEGP = String(updates.priceEGP);
+        updateData.priceEGP = updates.priceEGP;
       if (updates.icon !== undefined) updateData.icon = updates.icon;
       if (updates.available !== undefined)
         updateData.available = updates.available;
