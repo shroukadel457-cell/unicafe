@@ -31,7 +31,7 @@ export const branches = mysqlTable("branches", {
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });
 
-export const menuItems = mysqlTable("menuItems", {
+export const menuItems = mysqlTable("menuitems", {  // ✅ Fixed: lowercase "menuitems"
   id: serial("id").primaryKey(),
   branchId: bigint("branchId", { mode: "number", unsigned: true })
     .notNull(),
@@ -73,7 +73,7 @@ export const orders = mysqlTable("orders", {
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });
 
-export const orderItems = mysqlTable("orderItems", {
+export const orderItems = mysqlTable("orderitems", {  // ✅ Fixed: lowercase "orderitems"
   id: serial("id").primaryKey(),
   orderId: bigint("orderId", { mode: "number", unsigned: true })
     .notNull(),

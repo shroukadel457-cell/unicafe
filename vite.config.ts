@@ -7,7 +7,6 @@ import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import { inspectAttr } from 'kimi-plugin-inspect-react'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [
     devServer({ entry: "api/boot.ts", exclude: [/^\/(?!api\/).*$/] }),
@@ -16,7 +15,8 @@ export default defineConfig({
     port: 3000,
     hmr: {
       overlay: false
-    }
+    },
+    allowedHosts: ['precise-stony-eardrum.ngrok-free.dev', '.ngrok-free.dev']
   },
   resolve: {
     alias: {
